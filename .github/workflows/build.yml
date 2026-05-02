@@ -56,7 +56,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=raw,value=latest,enable={{is_default_branch}}
-            type=ref,value=${{env.PB_TAG}}
+            type=raw,value=${{env.PB_TAG}}
             type=raw,value=${{env.BRANCH}}-${{env.PB_TAG}}-${{env.TIMESTAMP}}
       
       - name: Set up QEMU
