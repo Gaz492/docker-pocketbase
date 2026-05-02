@@ -54,8 +54,9 @@ jobs:
             ghcr.io/gaz492/docker-pocketbase
           # generate Docker tags based on the following events/attributes
           tags: |
+            type=ref,event=branch
             type=raw,value=latest,enable={{is_default_branch}}
-            type=ref,event=${{env.PB_TAG}}
+            type=ref,value=${{env.PB_TAG}}
             type=raw,value=${{env.BRANCH}}-${{env.PB_TAG}}-${{env.TIMESTAMP}}
       
       - name: Set up QEMU
