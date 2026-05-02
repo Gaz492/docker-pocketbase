@@ -18,7 +18,7 @@ jobs:
       - name: Get latest pocketbase tag
         id: get_tag
         run: |
-          PB_TAG=$(curl -s https://api.github.com/repos/pocketbase/pocketbase/tags | jq -r '.[0].name')
+          PB_TAG=$(curl -s https://api.github.com/repos/pocketbase/pocketbase/tags | jq -r '.[0].name'  | sed 's/^v//')
           echo "PB_TAG=$PB_TAG" >> $GITHUB_ENV
       
       - name: Check if PB_TAG already exists in GHCR
